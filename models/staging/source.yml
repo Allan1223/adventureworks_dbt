@@ -1,0 +1,25 @@
+version: 2
+
+sources: 
+  - name: adventureworks_etl
+    description: "Adventures Work table"
+    tables: 
+      - name: customer
+        description: Customer's table of DB AdventureWorks
+        columns:
+          - name: customerid
+            description: primary key of customer table
+            tests:
+              - unique
+              - not_null
+              
+
+      - name: person
+        description: Person's table of DB AdventureWorks  
+        columns:
+          - name: businessentityid
+            description: Primary key of person table
+            tests:
+              - unique
+              - not_null
+
