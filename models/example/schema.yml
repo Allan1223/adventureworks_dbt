@@ -1,0 +1,30 @@
+
+version: 2
+
+
+source: 
+    - name: adventurework_etl
+      description: "Adventures Work table"
+      tables: 
+         - name: customer
+           description: Customer table of DB AdventureWorks
+           
+           
+models:
+    - name: my_first_dbt_model
+      description: "A starter dbt model"
+      columns:
+          - name: id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+
+    - name: my_second_dbt_model
+      description: "A starter dbt model"
+      columns:
+          - name: id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
