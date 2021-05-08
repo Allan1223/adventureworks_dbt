@@ -57,5 +57,41 @@ sources:
             description: Primary key of Employees
             tests:
               - unique
+              - not_null 
+              
+      - name: salesterritory
+        description: Sales Territory table of the DB AdventureWorks 
+        columns:
+          - name: territoryid
+            description: Primary key of SalesTerritory
+            tests:
+              - unique
+              - not_null  
+      
+      - name: stateprovince
+        description: States/Provices table of the Sales Order - DB AdventureWorks 
+        columns:
+          - name: stateprovinceid
+            description: Primary key of Stateprovince
+            tests:
+              - unique
+              - not_null       
+              
+      - name: address
+        description: Address table of the Sales Order - DB AdventureWorks 
+        columns:
+          - name: addressid
+            description: Primary key of Address
+            tests:
+              - unique
+              - not_null  
+
+      - name: countryregion
+        description: Countries table of the Sales Order - DB AdventureWorks 
+        columns:
+          - name: countryregioncode
+            description: Primary key of Countries
+            tests:
+              - unique
               - not_null          
-                      
+     
