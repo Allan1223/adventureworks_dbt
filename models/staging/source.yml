@@ -5,7 +5,7 @@ sources:
     description: "Adventures Work table"
     tables: 
       - name: customer
-        description: Customer's table of DB AdventureWorks
+        description: Customers table of the DB AdventureWorks
         columns:
           - name: customerid
             description: primary key of customer table
@@ -15,11 +15,29 @@ sources:
               
 
       - name: person
-        description: Person's table of DB AdventureWorks  
+        description: People table of the DB AdventureWorks  
         columns:
           - name: businessentityid
             description: Primary key of person table
             tests:
               - unique
               - not_null
+
+      - name: salesorderheadersalesreason
+        description:  Head Reason Sales table of the DB AdventureWorks  
+        columns:
+          - name: salesreason
+            description: Primary key of salesorderheadersalesreason
+            tests:
+              - unique
+              - not_null   
+
+      - name: salesreason
+        description: Reason Sales table of the DB AdventureWorks 
+        columns:
+          - name: salesreason
+            description: Primary key of salesreason
+            tests:
+              - unique
+              - not_null              
 
