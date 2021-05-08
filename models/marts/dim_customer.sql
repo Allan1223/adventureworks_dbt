@@ -3,27 +3,28 @@ with selCustomer as (
     select
         customerid
        , personid		
-       , rowguid
-    --  , storeid
-    --  , territoryid
+    -- , rowguid
+    -- , storeid
+    -- , territoryid
     -- , modifieddate      
     from {{ ref('stg_customer') }} 
+    where personid != 0
  
 ),
 
 selPerson as (
 select 
         businessentityid	-- PK, FK1
-      , rowguid	        -- FK Customer
+    --  , rowguid	        -- FK Customer
       , firstname	
-      , middlename	
+    --  , middlename	
       , lastname	
       , title	
       , persontype		
       , namestyle	
      -- , suffix		
      -- , modifieddate		
-      , emailpromotion
+     -- , emailpromotion
       from {{ ref('stg_person') }} 
 
 ), customer_with_person as (
@@ -45,15 +46,15 @@ select
       , selPerson.namestyle	
      -- , selPerson.suffix		
      -- , selPerson.modifieddate		
-      , selPerson.emailpromotion
+     -- , selPerson.emailpromotion
     from selCustomer
-      left join selPerson on selPerson.businessentityid= selCustomer.customerid
+      left join selPerson on selPerson.businessentityid= selCustomer.personid
    
 
 ), transformed as (
 
         select
-          row_number() over (order by customerID) as customerFK
+          row_number() over (order by customerID) as customerSK
           , *
           from customer_with_person
 
