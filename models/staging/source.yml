@@ -39,5 +39,23 @@ sources:
             description: Primary key of salesreason
             tests:
               - unique
-              - not_null              
-
+              - not_null  
+              
+      - name: salesperson
+        description: Person Sales table of the DB AdventureWorks 
+        columns:
+          - name: businessentityid
+            description: Primary key of salesperson
+            tests:
+              - unique
+              - not_null          
+              
+      - name: employee
+        description: Employees table of the DB AdventureWorks 
+        columns:
+          - name: businessentityid
+            description: Primary key of Employees
+            tests:
+              - unique
+              - not_null          
+                      

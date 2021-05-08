@@ -54,7 +54,7 @@ select
 ), transformed as (
 
         select
-          row_number() over (order by customerID) as customerSK
+          row_number() over (order by customerID) as customer_SK
           , *
           from customer_with_person
 
