@@ -1,4 +1,4 @@
-with source_address as (
+with selAddress as (
 
     select
       addressid	
@@ -19,6 +19,52 @@ with source_address as (
 
     from {{ source('adventureworks_etl', 'address') }} 	
 
+), selStateprovince as (
+  
+      select
+        stateprovinceid
+      , stateprovincecode 
+      , countryregioncode 
+      , isonlystateprovinceflag 
+      , name as name_province
+      , territoryid
+      from  {{ source('adventureworks_etl', 'stateprovince') }} 
+
+
+), selCountryregion as (
+
+   select countryregioncode
+         , name as name_country
+          from {{ source('adventureworks_etl', 'countryregion') }}
+
+), source as (
+
+    select
+      selAddress.addressid	
+    , selAddress.addressline1	
+    , selAddress.addressline2		
+    , selAddress.city		
+    , selAddress.stateprovinceid		
+    , selAddress.postalcode		
+    , selAddress.spatiallocation
+  --  , selStateprovince.stateprovinceid
+    , selStateprovince.stateprovincecode 
+    , selStateprovince.countryregioncode 
+    , selStateprovince.isonlystateprovinceflag 
+    , selStateprovince.name_province
+    , selStateprovince.territoryid
+   -- , countryregioncode
+    , selCountryregion.name_country
+    from selAddress 
+      left join selStateprovince
+       on selStateprovince.stateprovinceid = selAddress.stateprovinceid
+      left join  selCountryregion
+        on  selCountryregion.countryregioncode =  selStateprovince.countryregioncode
+
+)
+
+
+/*
 ), source_address_with_stateprovince as (
 
     select
@@ -44,7 +90,8 @@ with source_address as (
          on source_address_with_stateprovince.countryregioncode = countryregion.countryregioncode
 
 
-)
+)*/
 
-select * from source_all
+
+select * from source
  

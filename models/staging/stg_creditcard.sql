@@ -14,15 +14,26 @@ with sel_creditcard as (
       -- , _sdc_extracted_at		
         from {{ source('adventureworks_etl', 'creditcard') }}    
 
-),  creditcard_with_person as (
+),  selCreditcardPerson as (
 
-    select 
-           sel_creditcard.*
-         , personcreditcard.businessentityid
-          from sel_creditcard
-          left join {{ source('adventureworks_etl', 'personcreditcard') }}  as personcreditcard
-          on sel_creditcard.creditcardid = personcreditcard.creditcardid
+      select           
+           businessentityid
+         , creditcardid
+          from  {{ source('adventureworks_etl', 'personcreditcard') }} 
+          
 
+), source as (
+
+    select
+         sel_creditcard.creditcardid		       
+       , sel_creditcard.cardtype		
+       , sel_creditcard.cardnumber	
+       , sel_creditcard.expmonth	
+       , sel_creditcard.expyear	
+       , selCreditcardPerson.businessentityid
+        from sel_creditcard
+        left join selCreditcardPerson 
+        on selCreditcardPerson.creditcardid = sel_creditcard.creditcardid
 )
 
-select * from creditcard_with_person
+select * from source

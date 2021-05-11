@@ -105,11 +105,38 @@ sources:
               - not_null 
 
       - name: personcreditcard
-        description: Credit card People table of the CreditCard - DB AdventureWorks 
+        description: Credit card People table of the Sales Order - DB AdventureWorks 
         columns:
           - name: businessentityid
             description: Primary key of personcreditcard
             tests:
               - unique
-              - not_null                     
+              - not_null               
+              
+      - name: product
+        description: Products table of the Sales Order - DB AdventureWorks 
+        columns:
+          - name: productid
+            description: Primary key of product
+            tests:
+              - unique
+              - not_null    
+              
+      - name:  productsubcategory
+        description: Products sub category table of the product - DB AdventureWorks 
+        columns:
+          - name:  productsubcategoryid
+            description: Primary key of productsubcategory
+            tests:
+              - unique
+              - not_null            
+              
+      - name:  productcategory
+        description: Products category table of the product - DB AdventureWorks 
+        columns:
+          - name:  productcategoryid
+            description: Primary key of productcategory
+            tests:
+              - unique
+              - not_null       
      
