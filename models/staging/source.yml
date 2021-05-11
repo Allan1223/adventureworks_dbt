@@ -93,5 +93,23 @@ sources:
             description: Primary key of Countries
             tests:
               - unique
-              - not_null          
+              - not_null     
+
+      - name: creditcard
+        description: Credit cards table of the Sales Order - DB AdventureWorks 
+        columns:
+          - name: creditcardid
+            description: Primary key of creditcard
+            tests:
+              - unique
+              - not_null 
+
+      - name: personcreditcard
+        description: Credit card People table of the CreditCard - DB AdventureWorks 
+        columns:
+          - name: businessentityid
+            description: Primary key of personcreditcard
+            tests:
+              - unique
+              - not_null                     
      
