@@ -138,5 +138,30 @@ sources:
             description: Primary key of productcategory
             tests:
               - unique
-              - not_null       
+              - not_null   
+      
+      - name:  salesorderheader 
+        description: Sales Orders Header table - DB AdventureWorks 
+        columns:
+          - name:  salesorderid
+            description: Primary key of salesorderheader 
+            tests:
+              - unique
+              - not_null   
+
+      - name: salesorderdetail
+        description: Sales Orders Details table - DB AdventureWorks 
+        columns:
+          - name:  salesorderid
+            description: Primary key of  salesorderdetail
+            tests:
+              - unique
+              - not_null    
+          - name:  salesorderdetailid
+            description: Primary key of  salesorderdetail
+            tests:
+              - unique
+              - not_null              
+
+                
      
