@@ -1,27 +1,30 @@
-with SelSalesReasonHead as (
 
-   select
-          salesorderid
-        , salesreasonid 
+with reason_distinct as (
+
+    select salesorderid ,
+           max(salesreasonid)     as salesreasonid                 
           from {{ source('adventureworks_etl', 'salesorderheadersalesreason') }}
+          group by salesorderid 
+                     
 
-), SelSalesReason as (
+
+),  SelSalesReason as (
 
     select salesreasonid
            , reasontype 
            , name
            from {{ source('adventureworks_etl', 'salesreason') }} 
 
-), source as (
+) , source as (
 
     select
-         SelSalesReasonHead.salesorderid
-       , SelSalesReasonHead.salesreasonid 
+        reason_distinct.salesorderid
+       , reason_distinct.salesreasonid 
        , SelSalesReason.reasontype 
        , SelSalesReason.name
-    from  SelSalesReasonHead
-      left join  SelSalesReason
-      on SelSalesReason.salesreasonid = SelSalesReasonHead.salesreasonid
+    from  reason_distinct
+       left join  SelSalesReason
+      on SelSalesReason.salesreasonid = reason_distinct.salesreasonid
 )
 
 select * from source

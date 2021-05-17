@@ -1,6 +1,6 @@
 with selReason as (
   
-    select
+    select  
          salesorderid
        , salesreasonid 
        , reasontype 
@@ -12,7 +12,7 @@ with selReason as (
 
 transformed as (
 
-    select row_number() over (order by salesreasonid) as salesreason_SK
+    select row_number() over (order by salesorderid) as salesreason_SK
           , *
           from selReason
 
