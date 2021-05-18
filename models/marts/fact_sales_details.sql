@@ -66,11 +66,7 @@ sales_with_sk as (
      left join salesreason on salesreason.salesorderid  = sales.salesorderid 
     left join creditcards on creditcards.creditcardid   = sales.creditcardid
 
-)
-
-
-/*,
-sales_details_with_sk as (
+), sales_details_with_sk as (
 
     select
       
@@ -85,19 +81,15 @@ sales_details_with_sk as (
        , salesdetails.unitpricediscount	
        , (salesdetails.unitprice * salesdetails.orderqty) * (1 - salesdetails.unitpricediscount)  as valor_total
        from {{ ref('stg_salesdetails') }} as salesdetails
-       left join products on products.protid  = salesdetails.productid
+       left join products on products.productid  = salesdetails.productid
 
-)
-*/
-,
-
-final as (
+), final as (
 
     select
          sales_with_sk.salesorderid -- primary key
         , sales_with_sk.customer_sk
         , sales_with_sk.employee_sk
-    --   , sales_details_with_sk.product_sk
+       , sales_details_with_sk.product_sk
        , sales_with_sk.address_sk
        , sales_with_sk.salesreason_SK
        , sales_with_sk.creditcard_sk    
@@ -114,15 +106,15 @@ final as (
        , sales_with_sk.totaldue		    	
        , sales_with_sk.shipdate	
        , sales_with_sk.accountnumber       	
-    /*   , sales_details_with_sk.salesorderdetailid	       
+       , sales_details_with_sk.salesorderdetailid	       
        , sales_details_with_sk.orderqty		
        , sales_details_with_sk.unitprice	
        , sales_details_with_sk.specialofferid	   
        , sales_details_with_sk.carriertrackingnumber	
        , sales_details_with_sk.unitpricediscount	
-       , sales_details_with_sk.valor_total */
+       , sales_details_with_sk.valor_total 
        from sales_with_sk
-       /*left join sales_details_with_sk on sales_details_with_sk.salesorderid = sales_with_sk.salesorderid*/
+       left join sales_details_with_sk on sales_details_with_sk.salesorderid = sales_with_sk.salesorderid
 
 
 )
