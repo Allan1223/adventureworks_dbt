@@ -26,16 +26,15 @@ sources:
       - name: salesorderheadersalesreason
         description:  Head Reason Sales table of the DB AdventureWorks  
         columns:
-          - name: salesreason
+          - name: salesorderid
             description: Primary key of salesorderheadersalesreason
             tests:
-              - unique
               - not_null   
 
       - name: salesreason
         description: Reason Sales table of the DB AdventureWorks 
         columns:
-          - name: salesreason
+          - name: salesreasonid
             description: Primary key of salesreason
             tests:
               - unique
@@ -152,11 +151,6 @@ sources:
       - name: salesorderdetail
         description: Sales Orders Details table - DB AdventureWorks 
         columns:
-          - name:  salesorderid
-            description: Primary key of  salesorderdetail
-            tests:
-              - unique
-              - not_null    
           - name:  salesorderdetailid
             description: Primary key of  salesorderdetail
             tests:
