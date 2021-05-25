@@ -2,12 +2,12 @@ with selAddress as (
 
     select
       addressid	
-    , addressline1	
-    , addressline2		
-    , city		
-    , stateprovinceid		
-    , postalcode		
-    , spatiallocation	
+     , addressline1	
+     , addressline2		
+     , city		
+     , stateprovinceid		
+     , postalcode		
+     , spatiallocation	
    -- , modifieddate		
    -- , rowguid	
    -- , _sdc_batched_at		
@@ -44,16 +44,16 @@ with selAddress as (
     , selAddress.addressline1	
     , selAddress.addressline2		
     , selAddress.city		
-    , selAddress.stateprovinceid		
+--    , selAddress.stateprovinceid		
     , selAddress.postalcode		
     , selAddress.spatiallocation
-  --  , selStateprovince.stateprovinceid
+    , selStateprovince.stateprovinceid
     , selStateprovince.stateprovincecode 
     , selStateprovince.countryregioncode 
     , selStateprovince.isonlystateprovinceflag 
     , selStateprovince.name_province
-    , selStateprovince.territoryid
-   -- , countryregioncode
+   , selStateprovince.territoryid
+    --, countryregioncode
     , selCountryregion.name_country
     from selAddress 
       left join selStateprovince
