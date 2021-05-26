@@ -3,10 +3,10 @@ with source as (
     select 
          customerid
       ,  personid		
-      ,  rowguid
+    --  ,  rowguid
       ,  storeid
       ,  territoryid
-      ,  modifieddate      	
+    --  ,  modifieddate      	
     -- ,  _sdc_table_version	  
     --  ,  _sdc_batched_at		
     --  ,  _sdc_extracted_at

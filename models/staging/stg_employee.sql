@@ -3,18 +3,18 @@ with source as (
     select
      businessentityid
    , jobtitle	  
-   , nationalidnumber		
-   , sickleavehours		
-   , loginid		
-   , currentflag		
-   , modifieddate		
-   , gender		
+  -- , nationalidnumber		
+  -- , sickleavehours		
+  -- , loginid		
+  -- , currentflag		
+  -- , modifieddate		
+  -- , gender		
    , hiredate		
    , salariedflag		
-   , birthdate		
-   , maritalstatus		
-   , organizationnode
-   , vacationhours	
+  -- , birthdate		
+  -- , maritalstatus		
+  -- , organizationnode
+  -- , vacationhours	
   /* , rowguid		
    , _sdc_extracted_at		
    , _sdc_table_version		

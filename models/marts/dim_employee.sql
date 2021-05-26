@@ -3,10 +3,10 @@ with selSalesPerson as (
     select
      businessentityid	
    , salesquota
-   , salesytd	
-   , saleslastyear		
+  -- , salesytd	
+  -- , saleslastyear		
    , commissionpct	   	
-   , territoryid		
+  -- , territoryid		
    , bonus		
 
    from {{ ref('stg_salesperson') }} 
@@ -24,18 +24,18 @@ with selSalesPerson as (
    , selSalesPerson.territoryid		
    , selSalesPerson.bonus	*/
    , employee.jobtitle	  
-   , employee.nationalidnumber		
-   , employee.sickleavehours		
-   , employee.loginid		
-   , employee.currentflag		
-   , employee.modifieddate		
-   , employee.gender		
+  -- , employee.nationalidnumber		
+  -- , employee.sickleavehours		
+  -- , employee.loginid		
+  -- , employee.currentflag		
+ --  , employee.modifieddate		
+ --  , employee.gender		
    , employee.hiredate		
    , employee.salariedflag		
-   , employee.birthdate		
-   , employee.maritalstatus		
-   , employee.organizationnode
-   , employee.vacationhours	
+  -- , employee.birthdate		
+  -- , employee.maritalstatus		
+  -- , employee.organizationnode
+  -- , employee.vacationhours	
    from  selSalesPerson   
      left join {{ ref('stg_employee') }} as employee
      on selSalesPerson.businessentityid = employee.businessentityid
@@ -50,8 +50,8 @@ with selSalesPerson as (
         , lastname	
         , title	
         , persontype		
-        , namestyle	
-        , suffix		
+    --    , namestyle	
+    --    , suffix		
       --  , modifieddate		
         , emailpromotion	 
        from salesPerson_with_employee as swe

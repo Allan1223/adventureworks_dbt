@@ -1,12 +1,8 @@
 with selCustomer as (
 
     select
-        customerid
-       , personid		
-    -- , rowguid
-    -- , storeid
-    -- , territoryid
-    -- , modifieddate      
+         customerid
+       , personid		         
     from {{ ref('stg_customer') }} 
     where personid != 0
  
@@ -15,16 +11,11 @@ with selCustomer as (
 selPerson as (
 select 
         businessentityid	-- PK, FK1
-    --  , rowguid	        -- FK Customer
-      , firstname	
-    --  , middlename	
+      , firstname	 
       , lastname	
       , title	
       , persontype		
-      , namestyle	
-     -- , suffix		
-     -- , modifieddate		
-     -- , emailpromotion
+      , namestyle     
       from {{ ref('stg_person') }} 
 
 ), customer_with_person as (
@@ -32,23 +23,14 @@ select
     select
         selCustomer.customerid
       , selCustomer.personid		
-     -- , selCustomer.rowguid
-     -- , selCustomer.storeid
-     -- , selCustomer.territoryid
-     -- , selCustomer.modifieddate   
       , selPerson.businessentityid	-- PK, FK1
-     -- , selPerson.rowguid	        -- FK Customer
       , selPerson.firstname	
-     -- , selPerson.middlename	
       , selPerson.lastname	
       , selPerson.title	
       , selPerson.persontype		
-      , selPerson.namestyle	
-     -- , selPerson.suffix		
-     -- , selPerson.modifieddate		
-     -- , selPerson.emailpromotion
+      , selPerson.namestyle     
     from selCustomer
-      left join selPerson on selPerson.businessentityid= selCustomer.personid
+      left join selPerson on selPerson.businessentityid = selCustomer.personid
    
 
 ), transformed as (

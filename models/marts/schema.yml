@@ -1,0 +1,95 @@
+version: 2
+
+models:
+    - name: dim_customer
+      description: "This is the Dimension of Customer"
+      columns:
+          - name: customerid
+            description: "The primary key for this dimension"
+            tests:
+                - unique
+                - not_null
+
+          - name: customer_sk   
+            description: "The surrogate key for this dimension"
+            tests:
+                - unique
+                - not_null  
+                
+          - name: personid   
+            description: "The foreign key for table salesperson"
+            
+          - name: businessentityid   
+            description: "The foreign key for table person"  
+          
+          - name: fistname 
+            description: "The customer's firt name" 
+          
+          - name: lastname 
+            description: "The customer's last name"    
+
+          - name: title 
+            description: "The customer's title" 
+
+          - name: persontype 
+            description: "The customer's person type"
+
+          - name: namestaly
+            description: "The customer's namestyle"              
+ 
+    - name: dim_employee
+      description: "This is the Dimension of employee"
+      columns:
+          - name: businessentityid
+            description: "The primary key for this dimension"
+            tests:
+                - unique
+                - not_null
+
+          - name: employee_sk   
+            description: "The surrogate key for this dimension"
+            tests:
+                - unique
+                - not_null  
+          
+          - name: salesquota
+            description: "Sales cota of employee"              
+          
+                     
+          - name: commissionpct
+            description: "Sales comission of employee"   
+
+          - name: bonus
+            description: "Sales bonus of employee"   
+            
+          - name: jobtitle
+            description: "Job title of employee"  
+            
+          - name: nationalidnumber
+            description: "Id number national of employee"
+
+          - name: hiredate
+            description: "hire date of employee"
+          
+          - name: salariedflag
+            description: "Flag salaried of employee"
+            
+          - name: firstname 
+            description: "First Name of employee"
+            
+          - name: lastname
+            description: "Last Name of employee" 
+            
+          - name: title
+            description: "Title of employee"
+            
+          - name: persontype
+            description: "Person Type of employee"
+            
+          - name: emailpromotion
+            description: "Email promotion of employee" 
+            
+          
+  
+          
+  
