@@ -6,8 +6,8 @@ with source as (
        , productid
        , orderqty		
        , unitprice	
-       , specialofferid	   
-       , carriertrackingnumber	
+      -- , specialofferid	   
+      -- , carriertrackingnumber	
        , unitpricediscount	
        -- , _sdc_received_at	 
       --  , modifieddate	

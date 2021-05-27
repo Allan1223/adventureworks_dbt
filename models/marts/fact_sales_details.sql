@@ -44,21 +44,21 @@ sales_with_sk as (
        , creditcards.creditcard_sk    
        , sales.taxamt		
        , sales.shiptoaddressid		
-       , sales.onlineorderflag
+      -- , sales.onlineorderflag
        -- territoryid		
        , sales.status		
         --currencyrateid		
        , sales.orderdate	
-       , sales.creditcardapprovalcode		
+      -- , sales.creditcardapprovalcode		
        , sales.subtotal		
         --creditcardid		
-       , sales.revisionnumber		
+      -- , sales.revisionnumber		
        , sales.freight		
-       , sales.duedate	
-       , sales.totaldue		
-    -- customerid		
-       , sales.shipdate	
-       , sales.accountnumber		
+     --  , sales.duedate	
+     --  , sales.totaldue		
+     -- customerid		
+     --  , sales.shipdate	
+     --  , sales.accountnumber		
     from {{ ref('stg_sales') }} as sales
     left join employees   on employees.businessentityid  = sales.salespersonid 
     left join customers   on customers.customerid        = sales.customerid
@@ -76,8 +76,8 @@ sales_with_sk as (
      --  , productid
        , salesdetails.orderqty		
        , salesdetails.unitprice	
-       , salesdetails.specialofferid	   
-       , salesdetails.carriertrackingnumber	
+      -- , salesdetails.specialofferid	   
+      -- , salesdetails.carriertrackingnumber	
        , salesdetails.unitpricediscount	
        , (salesdetails.unitprice * salesdetails.orderqty) * (1 - salesdetails.unitpricediscount)  as valor_total
        from {{ ref('stg_salesdetails') }} as salesdetails
@@ -95,22 +95,22 @@ sales_with_sk as (
        , sales_with_sk.creditcard_sk    
        , sales_with_sk.taxamt		
        , sales_with_sk.shiptoaddressid		
-       , sales_with_sk.onlineorderflag       		
+     --  , sales_with_sk.onlineorderflag       		
        , sales_with_sk.status		        	
        , sales_with_sk.orderdate	
-       , sales_with_sk.creditcardapprovalcode		
+     --  , sales_with_sk.creditcardapprovalcode		
        , sales_with_sk.subtotal		       	
-       , sales_with_sk.revisionnumber		
+     --  , sales_with_sk.revisionnumber		
        , sales_with_sk.freight		
-       , sales_with_sk.duedate	
-       , sales_with_sk.totaldue		    	
-       , sales_with_sk.shipdate	
-       , sales_with_sk.accountnumber       	
+     --  , sales_with_sk.duedate	
+     --  , sales_with_sk.totaldue		    	
+     --  , sales_with_sk.shipdate	
+     --  , sales_with_sk.accountnumber       	
        , sales_details_with_sk.salesorderdetailid	       
        , sales_details_with_sk.orderqty		
        , sales_details_with_sk.unitprice	
-       , sales_details_with_sk.specialofferid	   
-       , sales_details_with_sk.carriertrackingnumber	
+     --  , sales_details_with_sk.specialofferid	   
+     --  , sales_details_with_sk.carriertrackingnumber	
        , sales_details_with_sk.unitpricediscount	
        , sales_details_with_sk.valor_total 
        from sales_with_sk

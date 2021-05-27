@@ -5,21 +5,21 @@ with source as (
        , salespersonid     
        , taxamt		
        , shiptoaddressid		
-       , onlineorderflag
+      -- , onlineorderflag
        , territoryid		
        , status		
-       , currencyrateid		
+      -- , currencyrateid		
        , orderdate	
-       , creditcardapprovalcode		
+      -- , creditcardapprovalcode		
        , subtotal		
        , creditcardid		
-       , revisionnumber		
+      -- , revisionnumber		
        , freight		
-       , duedate	
-       , totaldue		
+      -- , duedate	
+      -- , totaldue		
        , customerid		
-       , shipdate	
-       , accountnumber		
+      -- , shipdate	
+       --, accountnumber		
     from {{ source('adventureworks_etl', 'salesorderheader') }}
 
 )
