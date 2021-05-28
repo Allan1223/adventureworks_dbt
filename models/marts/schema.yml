@@ -5,49 +5,49 @@ models:
       description: "This is the Dimension of Customer"
       columns:
           - name: customerid
-            description: "The primary key for this dimension"
+            description: "Primary key for this dimension"
             tests:
                 - unique
                 - not_null
 
           - name: customer_sk   
-            description: "The surrogate key for this dimension"
+            description: "Surrogate key for this dimension"
             tests:
                 - unique
                 - not_null  
                 
           - name: personid   
-            description: "The foreign key for table salesperson"
+            description: "Foreign key for table salesperson"
             
           - name: businessentityid   
-            description: "The foreign key for table person"  
+            description: "Foreign key for table person"  
           
           - name: fistname 
-            description: "The customer's firt name" 
+            description: "Customer firt name" 
           
           - name: lastname 
-            description: "The customer's last name"    
+            description: "Customer last name"    
 
           - name: title 
-            description: "The customer's title" 
+            description: "Customer title" 
 
           - name: persontype 
-            description: "The customer's person type"
+            description: "Customer person type"
 
           - name: namestaly
-            description: "The customer's namestyle"              
+            description: "Customer namestyle"              
  
     - name: dim_employee
       description: "This is the Dimension of employee"
       columns:
           - name: businessentityid
-            description: "The primary key for this dimension"
+            description: "Primary key for this dimension"
             tests:
                 - unique
                 - not_null
 
           - name: employee_sk   
-            description: "The surrogate key for this dimension"
+            description: "Surrogate key for this dimension"
             tests:
                 - unique
                 - not_null  
@@ -89,7 +89,192 @@ models:
           - name: emailpromotion
             description: "Email promotion of employee" 
             
+    - name: dim_creditcard
+      description: "This is the Dimension of Credit Cards"
+      columns:
+          - name: creditcardid
+            description: "Primary key for this dimension"
+            tests:
+                - unique
+                - not_null
+
+          - name: creditcard_sk   
+            description: "Surrogate key for this dimension"
+            tests:
+                - unique
+                - not_null  
           
-  
+          - name: businessentityid
+            description: "Foreign key for table personcreditcard"              
           
-  
+          - name: cardtype
+            description: "Credit Card type"
+            
+          - name: cardnumber
+            description: "Credit Card number"
+           
+          - name: expmonth
+            description: "Credit Card expiration month"
+            
+          - name: expyear
+            description: "Credit Card expiration year"  
+            
+    - name: dim_address
+      description: "This is the Dimension of Address"
+      columns:
+          - name: addressid
+            description: "Primary key for this dimension"
+            tests:
+                - unique
+                - not_null
+
+          - name: address_SK   
+            description: "Surrogate key for this dimension"
+            tests:
+                - unique
+                - not_null  
+          
+          - name: stateprovinceid
+            description: "Foreign key for table State Province"              
+              
+          - name: countryregioncode
+            description: "Foreign key for table Country"              
+          
+            
+          - name: addressline1
+            description: "Address line 1"
+            
+          - name: addressline2
+            description: "Address line 1"
+           
+          - name: city
+            description: "Address City"
+            
+          - name: postalcode
+            description: "Address Postal Code"  
+
+          - name: spatiallocation
+            description: "Address Spatial Location"  
+            
+          - name: stateprovincecode
+            description: "State Province Code"  
+            
+          - name: isonlystateprovinceflag
+            description: "Flag isonlystateprovince"  
+          
+          - name: name_province
+            description: "Province name"  
+          
+          - name: territoryid
+            description: "territory id"  
+          
+          - name: name_country
+            description: "Country name"  
+      
+    - name: dim_salesreason
+      description: "This is the Dimension of Sales Reason"
+      columns:
+          - name: salesreasonid
+            description: "Primary key for this dimension"
+            tests:
+                - unique
+                - not_null
+
+          - name: salesreason_SK  
+            description: "Surrogate key for this dimension"
+            tests:
+                - unique
+                - not_null  
+          
+          - name: salesorderid
+            description: "Foreign key from table salesorderheadersalesreason"              
+              
+          - name: reasontype
+            description: "Reason Type"              
+                      
+          - name: name
+            description: "Reason Name"
+    
+    - name: dim_product
+      description: "This is the Dimension of Products"
+      columns:
+          - name: productid
+            description: "Primary key for this dimension"
+            tests:
+                - unique
+                - not_null
+
+          - name: product_SK  
+            description: "Surrogate key for this dimension"
+            tests:
+                - unique
+                - not_null  
+          
+          - name: productsubcategoryid
+            description: "Foreign key from table productsubcategory"   
+          
+          - name: productcategoryid
+            description: "Foreign key from table productcategoryid"   
+                
+          - name: name
+            description: "Product name"              
+          
+          - name: productnumber
+            description: "Product number"              
+            
+          - name: color
+            description: "Product color"              
+            
+          - name: safetystocklevel
+            description: "Product safety stock level"              
+          
+          - name: reorderpoint
+            description: "Product Reorder point" 
+           
+          - name: standardcost
+            description: "Product Standard Cost"
+           
+          - name: listprice
+            description: "Product List Price"
+            
+          - name: size
+            description: "Product Siza"
+            
+          - name: sizeunitmeasurecode
+            description: "Product size Unit Measurecode" 
+            
+          - name: weightunitmeasurecode
+            description: "Product Weight Unit Measurecode" 
+            
+          - name: weight
+            description: "Product Weight"
+          
+          - name: daystomanufacture
+            description: "Product day sto manufacture"  
+          
+          - name: productline
+            description: "Product Product line"  
+            
+          - name: class
+            description: "Product class"  
+            
+          - name: sellenddate
+            description: "Product sell end date"  
+         
+          - name: productmodelid
+            description: "Product Model id" 
+           
+          - name: sellstartdate
+            description: "Product sell start date"   
+           
+          - name: name_subcategory
+            description: "Product name_subcategory"
+            
+          - name: name_category
+            description: "Product name category" 
+          
+          - name: style
+            description: "Product style"    
+                       
+                            
+			
