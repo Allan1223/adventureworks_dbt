@@ -275,6 +275,65 @@ models:
           
           - name: style
             description: "Product style"    
+    
+    - name: fact_sales_details
+      description: "This is the Fact Table"
+      columns:
+          - name: salesorderid
+            description: "Primary key for this table"
+
+          - name: salesorderdetailid
+            description: "Primary key for this table"
+                        
+          - name: product_SK  
+            description: "Surrogate key for dimension of Product"
+            
+          - name: customer_SK  
+            description: "Surrogate key for dimension of Customer"
+          
+          - name: employee_SK  
+            description: "Surrogate key for dimension of employee"
+          
+          - name: salesreason_SK  
+            description: "Surrogate key for dimension of Sales Reason"
+
+          - name: credticard_SK  
+            description: "Surrogate key for dimension of Credit Card"
+          
+          - name: address_SK  
+            description: "Surrogate key for dimension of Addrees"
+          
+          - name: taxamt
+            description: "Taxamt of order"
+
+          - name: taxamt
+            description: "Taxamt of order"     
+
+          - name: shiptoaddressid
+            description: "Foreign key from table ship"     
+    
+          - name: status
+            description: "Status of order"
+
+          - name: orderdate
+            description: "Order date of order"
+
+          - name: subtotal
+            description: "Subtotal of order"
+
+          - name: freight	
+            description: "Freight	of order"
+
+          - name: unitprice	
+            description: "Unit Price	of Products Order"
+  
+          - name: unitpricediscount	
+            description: "unit price discount of Products Order"
+          
+          - name: valor_total	
+            description: "Valor Total	of order"
+  
+
                        
                             
 			
