@@ -95,7 +95,7 @@ sales_with_sk as (
        , sales_with_sk.creditcard_sk    
        , sales_with_sk.taxamt		
        , sales_with_sk.shiptoaddressid		
-     --  , sales_with_sk.onlineorderflag       		
+       , sales_with_sk.onlineorderflag       		
        , sales_with_sk.status		        	
        , sales_with_sk.orderdate	
      --  , sales_with_sk.creditcardapprovalcode		
